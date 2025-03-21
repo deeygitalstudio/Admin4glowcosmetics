@@ -1,0 +1,380 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>theglowcosmetics.ng</title>
+    <link rel="stylesheet" href="w3.css">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+  
+  <link rel="stylesheet" href="style.css">
+
+  <!-- <link rel="stylesheet" href="prestyled.css"> -->
+</head>
+<body class="bg-gray-100 w-full overflow-x-hidden">
+<header class="bg-[#8B3450] z-[999] text-center fixed top-0  w-full p-2 text-white shadow-md">
+  <p id="profile-initial" class="sm:text-xs text-center text-sm">You don't have an account with us yet, you need to register</p>
+</header>
+  <nav class="z-[999] bg-white top-8 fixed  w-full">
+    <div class="container mx-auto flex justify-between items-center px-6 py-4">
+      
+      <!-- Logo -->
+      <a href="#" class="text-2xl text-pink-600 font-bold text-gray-800">Logo</a>
+
+      <!-- Desktop Menu -->
+      <div class="hidden md:flex space-x-8">
+        <a href="#" class="text-gray-600 hover:text-pink-600 font-semibold">All Products</a>
+        <a href="#" class="text-gray-600 hover:text-pink-600 font-semibold">Soaps</a>
+        <a href="#" class="text-gray-600 hover:text-pink-600 font-semibold">Lotions</a>
+        <a href="#" class="text-gray-600 hover:text-pink-600 font-semibold">Lip Gloss</a>
+        <a href="#" class="text-gray-600 hover:text-pink-600 font-semibold">Product Set</a>
+      </div>
+
+
+
+ <a id="login-button" class="bg-[#8B3450] text-white cursor-pointer hidden lg:flex  px-7 py-2 rounded hover:bg-[#D2759D]" href="/login.html">Login</a>
+
+
+ 
+      <!-- Mobile Menu Button -->
+      <button id="menubtn" class="md:hidden text-gray-600 focus:outline-none">
+        <svg class="w-6 h-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7" />
+        </svg>
+      </button>
+
+    </div>
+
+    <!-- Mobile Menu (Sliding from Right) -->
+  <div id="mobile-menu" 
+     class="fixed top-0 right-0 w-2/3 h-full bg-white shadow-lg transform translate-x-full transition-transform duration-300 ease-in-out md:hidden flex flex-col space-y-6 p-6 z-50">
+  <button id="close-menu" class="self-end text-gray-600">
+    <svg class="w-6 h-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+    </svg>
+  </button>
+  <a href="#" class="text-gray-600 hover:text-blue-500">Home</a>
+  <a href="#" class="text-gray-600 hover:text-blue-500">Shop</a>
+  <a href="#" class="text-gray-600 hover:text-blue-500">About</a>
+  <a href="#" class="text-gray-600 hover:text-blue-500">Contact</a>
+ <!-- <a id="login-button" href="/login.html"><button class="bg-[#8B3450] text-white cursor-pointer hidden lg:flex  px-7 py-2 rounded hover:bg-[#D2759D]">Login</button></a> -->
+</div>
+
+
+  </nav>
+
+
+
+  <section class="mt-[8.5rem]">
+
+   <div class="container mx-auto bg-white p-6 rounded-lg shadow-lg w-full max-w-6xl">
+    <h1 class="text-2xl font-bold text-center text-[#8B3450] mb-4">Shopping Cart</h1>
+
+    <!-- Cart Table -->
+    <div class="overflow-x-auto">
+      <table class="min-w-full bg-white border border-gray-200 rounded-lg shadow-md">
+        <thead>
+          <tr class="bg-[#8B3450] text-white">
+            <th class="p-3 text-left">Product</th>
+            <th class="p-3 text-center">Quantity</th>
+            <th class="p-3 text-center">Price</th>
+            <th class="p-3 text-center">Remove</th>
+          </tr>
+        </thead>
+        <tbody id="cart-container">
+          <!-- Cart items will be dynamically added here -->
+        </tbody>
+      </table>
+    </div>
+
+    <div class="flex justify-between items-center mt-6">
+      <a href="index.html" class="bg-gray-500 text-white px-4 py-2 rounded-md">Continue Shopping</a>
+      <button id="checkoutBtn" class="bg-green-600 text-white px-4 py-2 rounded-md">Checkout</button>
+    </div>
+  </div>
+  </section>
+
+
+
+
+
+    
+    <section class="px-4 py-[90px] w-full">
+        <div class="container">
+            <p class="text-center font-semibold for ">For Better Experience Download the <br>
+                GlowCosmetics on Google PlayStore or Apple Store on</p>
+            <div class="logos">
+                <img src="./image/app_store.png" class="w-[90px]" alt="">
+                <img src="./image/play_store.png" class="w-[90px]" alt="">
+            </div>
+        </div>
+    </section>
+
+   <div class='footer bg-[#8B3450]' id='footer'>
+        <div class="footer-cont">
+            <div class="footleft">
+               <h1>Logo</h1>
+                <p>Lets make your skin glow </p>
+                <div class="footicons flex items-center ">
+                    <img src='./image/facebook_icon.png' alt="" />
+                    <img src="./image/twitter_icon.png" alt="" />
+                    <img src='./image/linkedin_icon.png' alt="" />
+                </div>
+            </div>
+            <div class="center">
+                <h4>Company</h4>
+                <ul>
+                    <li>Home</li>
+                    <li>About us</li>
+                    <li>Delivery</li>
+                    <li>Privacy policy</li>
+                </ul>
+            </div>
+            <div class="footright">
+                <h4>Get in Touch</h4>
+                <ul>
+                    <li>08026650502</li>
+                    <li>deeyakin@gmail.com</li>
+                </ul>
+            </div>
+
+        </div>
+        <hr />
+        <p class="footer-text text-sm">
+  Copyright <span id="year"></span> The GlowCosmetics - All rights reserved
+</p>
+        <p class="footer-text text-xs">Built by Akinbohun Ifedayo - 08026650502
+</p>
+    </div>
+
+  <script src=""></script>
+ <script type="module">
+  // Set current year in the footer
+   document.getElementById("year").textContent = new Date().getFullYear();
+   import { initializeApp } from "https://www.gstatic.com/firebasejs/11.4.0/firebase-app.js";
+import { 
+  getAuth,
+  onAuthStateChanged,
+  signOut 
+} from "https://www.gstatic.com/firebasejs/11.4.0/firebase-auth.js";
+import { 
+  getFirestore, 
+  getDoc,
+  getDocs,
+  collection,
+  updateDoc,
+  doc 
+} from "https://www.gstatic.com/firebasejs/11.4.0/firebase-firestore.js";
+
+// Firebase Configuration
+const firebaseConfig = {
+  apiKey: "AIzaSyBDdh94XNopWooWOzP0f4hoxstXLGu0lYA",
+  authDomain: "glowcosmetics-9195d.firebaseapp.com",
+  projectId: "glowcosmetics-9195d",
+  storageBucket: "glowcosmetics-9195d.appspot.com", 
+  messagingSenderId: "727828269977",
+  appId: "1:727828269977:web:3b5eae8537656c88376108"
+};
+
+// Initialize Firebase
+const app = initializeApp(firebaseConfig);
+const auth = getAuth(app);
+const db = getFirestore(app);
+
+// Get elements
+const loginButton = document.getElementById("login-button");
+const profileInitial = document.getElementById("profile-initial");
+const totalPriceElement = document.getElementById("total");
+
+// Check authentication state
+onAuthStateChanged(auth, async (user) => {
+  if (user) {
+    try {
+      const userDocRef = doc(db, "users", user.uid);
+      const userDoc = await getDoc(userDocRef);
+
+      if (userDoc.exists()) {
+        const userData = userDoc.data();
+        
+        if (userData.isAdmin) {
+          profileInitial.textContent = "Hi, Admin";
+        } else {
+          profileInitial.textContent = `Hi, ${userData.name || "User"}`;
+          if (loginButton) loginButton.textContent = "Logout";
+        }
+      } else {
+        Swal.fire({
+          icon: "warning",
+          title: "User data not found",
+          text: "Your profile information is missing.",
+          toast: true,
+          position: "top-end",
+          showConfirmButton: false,
+          timer: 3000,
+          timerProgressBar: true,
+        });
+      }
+    } catch (error) {
+      Swal.fire({
+        icon: "error",
+        title: "Error fetching user data",
+        text: error.message,
+        toast: true,
+        position: "top-end",
+        showConfirmButton: false,
+        timer: 3000,
+        timerProgressBar: true,
+      });
+    }
+  } else {
+    // User is logged out
+    if (loginButton) loginButton.textContent = "Login";
+  }
+});
+
+
+
+
+const cartContainer = document.getElementById("cart-container");
+
+// Fetch Cart Items
+async function fetchCart() {
+  const user = auth.currentUser;
+  if (!user) {
+    cartContainer.innerHTML = `<tr><td colspan="4" class="text-center p-4">Please log in to view your cart.</td></tr>`;
+    return;
+  }
+
+  const userRef = doc(db, "users", user.uid);
+  const userSnap = await getDoc(userRef);
+
+  if (!userSnap.exists() || !userSnap.data().cart.length) {
+    cartContainer.innerHTML = `<tr><td colspan="4" class="text-center p-4">Your cart is empty.</td></tr>`;
+    return;
+  }
+
+  const cart = userSnap.data().cart;
+  cartContainer.innerHTML = ""; // Clear previous content
+
+  cart.forEach((item, index) => {
+    const cartRow = document.createElement("tr");
+    cartRow.className = "border-b border-gray-200";
+    cartRow.dataset.index = index; // Store index in dataset
+
+    cartRow.innerHTML = `
+      <td class="p-3 flex items-center">
+        <img src="${item.imageUrl}" alt="${item.name}" class="w-12 h-12 object-cover rounded-md mr-3">
+        <span class="font-medium">${item.name}</span>
+      </td>
+      <td class="p-3 text-center">
+        <button class="decrease-btn bg-gray-300 px-2 rounded">-</button>
+        <span class="px-3 quantity">${item.quantity}</span>
+        <button class="increase-btn bg-gray-300 px-2 rounded">+</button>
+      </td>
+      <td class="p-3 text-center font-bold text-[#8B3450]">₦<span class="total-price">${item.price * item.quantity}</span></td>
+      <td class="p-3 text-center">
+        <button class="remove-btn bg-red-500 text-white px-2 py-1 rounded">Remove</button>
+      </td>
+    `;
+
+    cartContainer.appendChild(cartRow);
+  });
+}
+
+// ** Event Delegation for Cart Actions **
+cartContainer.addEventListener("click", async (event) => {
+  const user = auth.currentUser;
+  if (!user) return;
+
+  const userRef = doc(db, "users", user.uid);
+  const userSnap = await getDoc(userRef);
+  let cart = userSnap.data().cart;
+
+  const row = event.target.closest("tr"); // Get the closest row
+  if (!row) return;
+  const index = row.dataset.index;
+
+  if (event.target.classList.contains("increase-btn")) {
+    cart[index].quantity += 1;
+  } else if (event.target.classList.contains("decrease-btn")) {
+    if (cart[index].quantity > 1) {
+      cart[index].quantity -= 1;
+    } else {
+      cart.splice(index, 1); // Remove item if quantity reaches 0
+    }
+  } else if (event.target.classList.contains("remove-btn")) {
+    cart.splice(index, 1);
+  } else {
+    return; // Exit if no valid button is clicked
+  }
+
+  // Update Firestore
+  await updateDoc(userRef, { cart });
+  fetchCart(); // Refresh UI
+});
+
+// Checkout Button
+document.getElementById("checkoutBtn").addEventListener("click", () => {
+  alert("Checkout functionality will be added soon!");
+});
+
+// Listen for Auth State
+onAuthStateChanged(auth, (user) => {
+  if (user) fetchCart();
+});
+
+
+
+
+
+// Logout function
+loginButton.addEventListener("click", () => {
+  if(loginButton.textContent === "Logout"){
+    signOut(auth)
+        const Toast = Swal.mixin({
+  toast: true,
+  position: "top-end",
+  showConfirmButton: false,
+  timer: 3000,
+  timerProgressBar: true,
+  didOpen: (toast) => {
+    toast.onmouseenter = Swal.stopTimer;
+    toast.onmouseleave = Swal.resumeTimer;
+  }
+});
+Toast.fire({
+  icon: "success",
+  title: "User Logged Out Successfully"
+})
+    .then(() => {
+      window.location.reload(); // Reload page after logout
+    })
+    .catch((error) => {
+      const Toast = Swal.mixin({
+  toast: true,
+  position: "top-end",
+  showConfirmButton: false,
+  timer: 3000,
+  timerProgressBar: true,
+  didOpen: (toast) => {
+    toast.onmouseenter = Swal.stopTimer;
+    toast.onmouseleave = Swal.resumeTimer;
+  }
+});
+Toast.fire({
+  icon: "error",
+  title: error.message
+});
+    });
+  }
+  
+});
+
+
+
+</script>
+
+
+</body>
+</html>

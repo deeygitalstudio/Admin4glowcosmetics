@@ -1,0 +1,370 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Responsive Navbar</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+  <link rel="stylesheet" href="style.css">
+  <!-- <link rel="stylesheet" href="prestyled.css"> -->
+</head>
+<body class="bg-gray-100 overflow-x-hidden overflow-y-hidden">
+
+  <div class='flex items-center relative container-flex justify-center p-2 w-full h-[100dvh] bg-[url("./image/woman-using-pink-toned-cosmetic-product-her-face.jpg")] bg-cover bg-center'>
+    <div class="absolute inset-0 bg-gradient-to-b from-black/15 to-black/15"></div>
+   <div class="relative z-10 flex justify-center items-center">
+    <div class="bg-white w-[350px] max-w-md p-6 rounded-lg shadow-lg">
+    <!-- Modal Header -->
+    <div class="text-center border-b pb-3">
+      <h2 class="text-lg font-semibold title">Sign Up</h2>
+    </div>
+
+    <!-- Modal Body -->
+    <div class="mt-4">
+     <div class="mb-2 log">
+    <label class="block text-sm font-medium text-gray-600">Username</label>
+    <input type="text" id="name" class="w-full px-4 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-indigo-500" placeholder="Enter Username">
+  </div>
+     <div class="mb-2">
+    <label class="block text-sm font-medium text-gray-600">Email</label>
+    <input type="email" id="email" class="w-full px-4 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-indigo-500" placeholder="Enter email">
+  </div>
+     <div>
+    <label class="block text-sm font-medium text-gray-600">Password</label>
+    <input type="password" id="password" class="w-full px-4 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-indigo-500" placeholder="Enter password">
+  </div>
+  <p class="flex items-end hidden justify-end text-xs mt-1 cursor-pointer for">Forget Password</pv>
+    <div>
+   <p class="loginn text-sm mt-1">Already have an account? <span class="login cursor-pointer">Login</span> </p>
+   <p class="sign hidden text-sm mt-1">Don't have an account? <span class="signn cursor-pointer">Sign Up</span> </p>
+    </div>
+    </div>
+
+    <!-- Modal Footer -->
+    <div class="mt-4 flex justify-end space-x-2">
+      <button id="register" class="px-4 w-full py-2 bg-[#8B3450]  text-white rounded">register</button>
+    </div>
+  </div>
+
+
+  </div>
+    </div>
+
+
+    <div id="modal" class="fixed inset-0 flex items-center justify-center bg-black bg-opacity-50 invisible z-[200]">
+  <!-- Modal Container -->
+ 
+</div>
+
+    <div id="modals" class="fixed inset-0 flex items-center justify-center bg-black bg-opacity-50 hidden z-[200]">
+  <!-- Modal Container -->
+  <div class="bg-white w-full max-w-md p-6 rounded-lg shadow-lg">
+    <!-- Modal Header -->
+    <div class="flex justify-between items-center border-b pb-3">
+      <h2 class="text-lg font-semibold">Modal Title</h2>
+      <button id="close-modals" class="text-gray-500 hover:text-gray-700">
+        ✖
+      </button>
+    </div>
+
+    <!-- Modal Body -->
+    <div class="mt-4">
+      <p class="text-gray-600">This is a Tailwind CSS modal. You can place any content here.</p>
+    </div>
+
+    <!-- Modal Footer -->
+    <div class="mt-4 flex justify-end space-x-2">
+      <button id="close-modal-btns" class="px-4 py-2 bg-gray-300 rounded hover:bg-gray-400">Cancel</button>
+      <button id="" class="px-4 py-2 bg-indigo-600 text-white rounded hover:bg-indigo-700">Confirm</button>
+    </div>
+  </div>
+</div>
+
+   
+
+
+
+
+
+
+  
+ <script type="module">
+    const registerEl = document.getElementById('register')
+  const loginEl = document.querySelector('.login')
+  const forEl = document.querySelector('.for')
+  const loginnEl = document.querySelector('.loginn')
+  const signEl = document.querySelector('.sign')
+  const signnEl = document.querySelector('.signn')
+  const titleEl = document.querySelector('.title')
+  const logEl = document.querySelector('.log')
+
+  loginEl.addEventListener('click', () => {
+    if(titleEl.textContent === "Sign Up"){
+      logEl.classList.add('hidden') 
+      titleEl.textContent = "Login"
+      registerEl.textContent = "Login"
+      loginnEl.classList.add('hidden')
+       signEl.classList.remove('hidden')
+ forEl.classList.remove('hidden')
+    }else{
+         titleEl.textContent = "Login"
+          logEl.classList.remove('hidden') 
+           signEl.classList.add('hidden')
+           loginnEl.classList.remove('hidden')
+    
+    }
+  })
+ 
+  signnEl.addEventListener('click', () => {
+    if(titleEl.textContent === "Login"){
+      logEl.classList.remove('hidden') 
+      titleEl.textContent = "Sign Up"
+      registerEl.textContent = "register"
+      loginnEl.classList.remove('hidden')
+       signEl.classList.add('hidden')
+        forEl.classList.add('hidden')
+
+    }else{
+         titleEl.textContent = "Sign Up"
+          logEl.classList.add('hidden') 
+           signEl.classList.remove('hidden')
+           loginnEl.classList.add('hidden')
+     
+    }
+  })
+ 
+
+
+  // Firebase imports
+  import { initializeApp } from "https://www.gstatic.com/firebasejs/11.4.0/firebase-app.js";
+  import { 
+    createUserWithEmailAndPassword, 
+    getAuth, 
+    signInWithEmailAndPassword, 
+    signOut 
+  } from "https://www.gstatic.com/firebasejs/11.4.0/firebase-auth.js";
+  import { 
+    getFirestore, 
+    setDoc, 
+    getDoc,
+    doc, 
+    serverTimestamp 
+  } from "https://www.gstatic.com/firebasejs/11.4.0/firebase-firestore.js";
+
+
+  // Firebase Configuration
+  const firebaseConfig = {
+    apiKey: "AIzaSyBDdh94XNopWooWOzP0f4hoxstXLGu0lYA",
+    authDomain: "glowcosmetics-9195d.firebaseapp.com",
+    projectId: "glowcosmetics-9195d",
+    storageBucket: "glowcosmetics-9195d.appspot.com", // Fixed storage bucket URL
+    messagingSenderId: "727828269977",
+    appId: "1:727828269977:web:3b5eae8537656c88376108"
+  };
+
+  // Initialize Firebase
+  const app = initializeApp(firebaseConfig);
+  const auth = getAuth(app);
+  const db = getFirestore(app);
+
+
+  // Register Event Listener
+  registerEl.addEventListener('click', async () => {
+    if(registerEl.textContent === "register"){
+        const nameEl = document.getElementById('name').value.trim();
+    const emailEl = document.getElementById('email').value.trim();
+    const passwordEl = document.getElementById('password').value.trim();
+
+    if (!nameEl || !emailEl || !passwordEl) {
+    const Toast = Swal.mixin({
+  toast: true,
+  position: "top-end",
+  showConfirmButton: false,
+  timer: 3000,
+  timerProgressBar: true,
+  didOpen: (toast) => {
+    toast.onmouseenter = Swal.stopTimer;
+    toast.onmouseleave = Swal.resumeTimer;
+  }
+});
+Toast.fire({
+  icon: "error",
+  title: "Error in Details",
+  text: "Please fill all fields"
+});
+      return; // Stop function execution if validation fails
+    }
+
+    try {
+      // Create user with Firebase Authentication
+      const userCredential = await createUserWithEmailAndPassword(auth,  emailEl, passwordEl);
+      const user = userCredential.user;
+     await setDoc(doc(db, "users", user.uid), {
+        name: nameEl,
+        email: user.email,
+        createdAt: serverTimestamp(),
+         isAdmin: false,
+        cart: [], // Initialize an empty cart
+        orders: [] // Initialize an empty order history
+      });
+
+      const Toast = Swal.mixin({
+  toast: true,
+  position: "top-end",
+  showConfirmButton: false,
+  timer: 3000,
+  timerProgressBar: true,
+  didOpen: (toast) => {
+    toast.onmouseenter = Swal.stopTimer;
+    toast.onmouseleave = Swal.resumeTimer;
+  }
+});
+Toast.fire({
+  icon: "success",
+  title: "Nicely Done",
+  text: "Signed in successfully"
+}).then(() => {
+        // ✅ Redirect to home page after success
+        window.location.href = "index.html"; // Change to your home page
+      });
+
+      // Store user details in Firestore
+     
+
+    } catch (error) {
+      const Toast = Swal.mixin({
+  toast: true,
+  position: "top-end",
+  showConfirmButton: false,
+  timer: 3000,
+  timerProgressBar: true,
+  didOpen: (toast) => {
+    toast.onmouseenter = Swal.stopTimer;
+    toast.onmouseleave = Swal.resumeTimer;
+  }
+});
+Toast.fire({
+  icon: "error",
+  title: error.message
+});
+    }
+    }
+
+    if(registerEl.textContent === "Login"){
+    const emailEl = document.getElementById('email').value.trim();
+    const passwordEl = document.getElementById('password').value.trim();
+
+     if (!emailEl || !passwordEl) {
+  const Toast = Swal.mixin({
+  toast: true,
+  position: "top-end",
+  showConfirmButton: false,
+  timer: 3000,
+  timerProgressBar: true,
+  didOpen: (toast) => {
+    toast.onmouseenter = Swal.stopTimer;
+    toast.onmouseleave = Swal.resumeTimer;
+  }
+});
+Toast.fire({
+  icon: "error",
+  title: "Please fill in all fields"
+});
+    return; // Stop function execution if validation fails
+  }
+
+  try {
+    const userCredential = await signInWithEmailAndPassword(auth, emailEl, passwordEl);
+    const user = userCredential.user;
+
+    // Fetch user details from Firestore
+
+       const userDocRef = doc(db, "users", user.uid);
+      const userDoc = await getDoc(userDocRef);
+
+    if (userDoc.exists()) {
+      const userData = userDoc.data();
+
+      if (userData.isAdmin) {
+       const Toast = Swal.mixin({
+  toast: true,
+  position: "top-end",
+  showConfirmButton: false,
+  timer: 3000,
+  timerProgressBar: true,
+  didOpen: (toast) => {
+    toast.onmouseenter = Swal.stopTimer;
+    toast.onmouseleave = Swal.resumeTimer;
+  }
+});
+Toast.fire({
+  icon: "success",
+  title: "You are signed in as an Admin"
+});
+        window.location.href = "/index.html"; // Redirect admin to dashboard
+      } else {
+        const Toast = Swal.mixin({
+  toast: true,
+  position: "top-end",
+  showConfirmButton: false,
+  timer: 3000,
+  timerProgressBar: true,
+  didOpen: (toast) => {
+    toast.onmouseenter = Swal.stopTimer;
+    toast.onmouseleave = Swal.resumeTimer;
+  }
+});
+Toast.fire({
+  icon: "success",
+  title: "User signed in successfully"
+});
+        window.location.href = "/index.html"; // Redirect non-admins
+      }
+    } else {
+      console.error("User data not found!");
+     const Toast = Swal.mixin({
+  toast: true,
+  position: "top-end",
+  showConfirmButton: false,
+  timer: 3000,
+  timerProgressBar: true,
+  didOpen: (toast) => {
+    toast.onmouseenter = Swal.stopTimer;
+    toast.onmouseleave = Swal.resumeTimer;
+  }
+});
+Toast.fire({
+  icon: "error",
+  title: "User Data not Found"
+});
+    }
+  } catch (error) {
+    console.error("Login failed:", error);
+    const Toast = Swal.mixin({
+  toast: true,
+  position: "top-end",
+  showConfirmButton: false,
+  timer: 3000,
+  timerProgressBar: true,
+  didOpen: (toast) => {
+    toast.onmouseenter = Swal.stopTimer;
+    toast.onmouseleave = Swal.resumeTimer;
+  }
+});
+Toast.fire({
+  icon: "error",
+  title: "User Data not Found"
+});
+  }
+  
+}
+  });
+
+
+</script>
+
+
+</body>
+</html>
